@@ -38,5 +38,11 @@ $(document).ready(function(){
         $("aside").toggleClass("open");
     });
 
+    /*** Resize para cambio de tamaño */
+    $(window).on("resize", function(){
+        $(".burger").removeClass("open");
+        $("aside").removeClass("open");
+    });
 
+    
 });
