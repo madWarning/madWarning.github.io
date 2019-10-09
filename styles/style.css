@@ -1,0 +1,264 @@
+/*********************** Importaciones ***********************/
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Oswald&display=swap');
+
+
+/*********************** Reseteo de valores de navegador ***********************/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*********************** Generales ***********************/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #67666e;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+
+}
+
+header {
+    margin-top: 100px;
+    padding: 0.5em;
+}
+
+footer {
+    height: 150px;
+    width: 100%;
+    background-color: #1e1e2d;
+    padding: 30px 20px 20px;
+}
+
+/*********************** imagenes ******************************/
+
+.logo-small {
+    height: 50px;
+}
+
+.logo-small-negro {
+    height: 50px;
+    display:none;
+}
+
+.logo-small-blanco {
+    height: 50px;
+    display:block;
+}
+
+/*********************** barra navegación ***********************/
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+    background-color: white;
+    box-shadow: 0 2px 4px grey;
+    font-family: 'Oswald', sans-serif; 
+    transition: all 500ms ease-in-out;
+}
+
+nav.white {
+    background-color: transparent;
+    box-shadow: initial;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+@media (max-width: 720px) {
+    nav {
+        justify-content: flex-end;
+    }
+    nav ul {
+        display:none;
+    }
+}
+
+nav ul li a {
+    /* margin: separación de elementos, siempre. Dejamos el padding para otras movidas */
+    margin: 0 0.5em;
+    padding-bottom: 0.3em;
+    color: #67666e;
+    text-decoration: none;
+    font-size: 1.4em;
+}
+
+nav.white ul li a {
+    color: white;
+}
+
+nav ul li a:hover{
+    border-bottom: 1.5px solid #67666e;
+}
+
+nav.white ul li a:hover{
+    border-bottom: 1.5px solid white;
+}
+
+nav ul li a.activo{
+    border-bottom: 1.5px solid #67666e;
+}
+
+nav.white ul li a.activo{
+    border-bottom: 1.5px solid white;
+}
+
+/***********************  burguer */
+
+.burger {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    z-index: 100;
+    display: none;
+    cursor: pointer;
+}
+
+@media(max-width:720px){
+    .burger {
+        display:block;
+    }
+}
+
+.burger .bar{
+    height: 3px;
+    width: 35px;
+    background-color: #67666e;
+    margin:8px auto;
+    transition: all 700ms ease-in-out;
+}
+
+.burger.white .bar {
+    background-color: white;
+}
+
+/* transformamos de tres lineas a un aspa */
+.burger.open .bar.up{
+    transform: translateY(11px) rotateZ(45deg);
+}
+.burger.open .bar.middle{
+    width: 0;
+}
+.burger.open .bar.down{
+    transform: translateY(-11px) rotateZ(-45deg);
+}
+
+/*** Menú lateral */
+aside {
+    position: fixed;
+    top:0;
+    /* se posiciona a la izquierda, fuera de la pantalla */
+    left:-360px;
+    z-index: 50;
+    height: 100vh;
+    width: 360px;
+    background-color: #1e1e2d;
+    padding: 80px 20px 20px;
+    transition: all 600ms ease-in-out;
+}
+
+aside.open{
+    left: 0;
+}
+
+aside .item {
+    /* padding 1º param: arriba/abajo; 2º param: der/izq 
+       padding 1º param: arriba; 2º param: der/izq; 3º param: abajo
+       padding 1º param: arriba; 2º param: der; 3º param: abajo; 4º param: izq */
+    padding: 1.5em 0;
+}
+
+/* item:last-child: último elemento; 
+nth-child(posición) -> selecciona el nodo que le indicas  */
+aside .item:last-child {
+    /* fixed: arriba derecha
+       absolute: el padre debe estar relative, absolute o fixed */ 
+    position: absolute;
+    bottom: 20px;
+    left:20px;
+}
+
+aside hr {
+    border: none;
+    height: 1px;
+    background-color: #67666e;
+}
+
+aside .item a, 
+aside .item a:visited {
+    color: #67666e;
+    text-decoration: none;
+}
+
+/* para poner varios selectores que hacen lo mismo, se ponen juntos separados por comas */
+aside .item a:hover, 
+aside .item a.activo {
+    color: white;
+}
+
+
+/*** hero: fondo con imagen que ocupa todo el ancho*/
+
+.hero {
+    margin-top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../img/windrader-1639567_1920.jpg");
+    background-position: center;
+    /* fuerza a no mostrarlo en mosaico */
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+}
+
+.hero .titulo {
+    color: white;
+    margin-bottom: 8em;
+    border-left: 4px solid white;
+    padding-left: 2em;
+}
+
+.hero .titulo h1{
+    font-size: 4em;
+}
+
+.hero .titulo h1{
+    font-size: 3em;
+}
+
+/*********************** Layout ***********************/
+
+/* fila */
+.fila{
+    width: 100%;
+    display: flex;
+    padding: 0.5em;
+}
+
+/* Columna 100% */
+.col-100 {
+    width: 100%;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: column;    
+}
+
+p {
+    font-size: 1.4em;
+}
+/*********************** formulario ***********************/
